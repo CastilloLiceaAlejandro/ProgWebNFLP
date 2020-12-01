@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Borrar Estadios{% endblock title %}
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  <h6>Deseas borrar el estadio?</h6>
+  {{ object.Estadios }}
+  <button type="submit" name="confirm" class="btn btn-success btn-circle"><i class="fas fa-check fa-sm"></button>
+  <a href="{% url 'NFLP:listestadios' %}"><button type="button" name="cancel" class="btn btn-danger btn-circle"><i class="fas fa-times fa-sm"></button></a></form>
+</form>
+
+{% endblock content %}

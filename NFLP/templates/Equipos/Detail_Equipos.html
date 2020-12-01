@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle Equipo{% endblock title %}
+
+{% block content %}
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{ object.Equipos }}</h6>
+    </div>
+    <div class="card-body">
+    <h6>
+      ID Equipo: {{ object.ID_Equipo }} <br>
+      Nombre: {{ object.Nombre_Equipo }} <br>
+      Estado: {{ object.Estado_Equipo }} <br>
+      Mascota: {{ object.Mascota_Equipo }} <br>
+    </h6>
+
+    <td><a href="{% url 'NFLP:listequipos' %}"class="btn btn-link">Back</a></td>
+
+    </div>
+  </div>
+{% endblock content %}

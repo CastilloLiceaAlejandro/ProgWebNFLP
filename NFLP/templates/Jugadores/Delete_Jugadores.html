@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Borrar Jugador{% endblock title %}
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  <h6>Deseas borrar al jugador?</h6>
+  {{ object.Jugadores }}
+  <button type="submit" name="confirm" class="btn btn-success btn-circle"><i class="fas fa-check fa-sm"></button>
+  <a href="{% url 'NFLP:listjugadores' %}"><button type="button" name="cancel" class="btn btn-danger btn-circle"><i class="fas fa-times fa-sm"></button></a></form>
+</form>
+
+{% endblock content %}

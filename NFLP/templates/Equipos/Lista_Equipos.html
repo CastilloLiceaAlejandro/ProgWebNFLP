@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Equipos{% endblock title %}
+
+{% block content %}
+<h1>Lista Equipos</h1>
+    <table class="table table-bordered">
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Mascota</th>
+      {% for item in object_list %}
+        <tr>
+        <td>{{ item.ID_Equipo }}</td>
+        <td>{{ item.Nombre_Equipo }}</td>
+        <td>{{ item.Estado_Equipo }}</td>
+        <td>{{ item.Mascota_Equipo }}</td>
+        <td><a href="{% url 'NFLP:newequipos'  %}"><button type="button" name="button" class="btn btn-success btn-circle"><i class="fas fa-file fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:detailequipos' item.ID_Equipo %}"><button type="button" name="button" class="btn btn-info btn-circle"><i class="fas fa-info fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:deleteequipos' item.ID_Equipo %}"><button type="button" name="button" class="btn btn-danger btn-circle"><i class="fas fa-trash fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:updateequipos' item.ID_Equipo %}"><button type="button" name="button" class="btn btn-warning btn-circle"><i class="fas fa-pen fa-sm"></button></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock content %}

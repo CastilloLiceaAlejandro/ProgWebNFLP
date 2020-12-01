@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle Estadio{% endblock title %}
+
+{% block content %}
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{ object.Estadios }}</h6>
+    </div>
+    <div class="card-body">
+    <h6>
+      ID : {{ object.ID_Estadio }} <br>
+      Nombre: {{ object.Nombre_Estadio }} <br>
+      Estado: {{ object.Estado_Estadio }} <br>
+      Ciudad: {{ object.Ciudad_Estadio }} <br>
+      Equipo: {{ object.Nombre_Equipo }} <br>
+      Capacidad: {{ object.Capacidad_Estadio }} <br>
+    </h6>
+
+    <td><a href="{% url 'NFLP:listestadios' %}"class="btn btn-link">Back</a></td>
+
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Estadios{% endblock title %}
+
+{% block content %}
+<h1>Lista Estadios</h1>
+    <table class="table table-bordered">
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Ciudad</th>
+      <th>Equipo</th>
+      <th>Capacidad</th>
+      {% for item in object_list %}
+        <tr>
+        <td>{{ item.ID_Estadio }}</td>
+        <td>{{ item.Nombre_Estadio }}</td>
+        <td>{{ item.Estado_Estadio }}</td>
+        <td>{{ item.Ciudad_Estadio }}</td>
+        <td>{{ item.Nombre_Equipo }}</td>
+        <td>{{ item.Capacidad_Estadio }}</td>
+        <td><a href="{% url 'NFLP:newestadios'  %}"><button type="button" name="button" class="btn btn-success btn-circle"><i class="fas fa-file fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:detailestadios' item.ID_Estadio %}"><button type="button" name="button" class="btn btn-info btn-circle"><i class="fas fa-info fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:deleteestadios' item.ID_Estadio %}"><button type="button" name="button" class="btn btn-danger btn-circle"><i class="fas fa-trash fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:updateestadios' item.ID_Estadio %}"><button type="button" name="button" class="btn btn-warning btn-circle"><i class="fas fa-pen fa-sm"></button></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock content %}

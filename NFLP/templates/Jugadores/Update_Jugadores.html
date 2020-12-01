@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Actualizar Jugador{% endblock title %}
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" name="confirm" class="btn btn-success btn-circle"><i class="fas fa-check fa-sm"></button>
+  <a href="{% url 'NFLP:listjugadores' %}"><button type="button" name="cancel" class="btn btn-danger btn-circle"><i class="fas fa-times fa-sm"></button></a>
+</form>
+
+{% endblock content %}

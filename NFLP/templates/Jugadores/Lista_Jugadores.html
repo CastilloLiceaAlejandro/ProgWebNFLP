@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Jugadores{% endblock title %}
+
+{% block content %}
+<h1>Lista Jugadores</h1>
+    <table class="table table-bordered">
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Equipo</th>
+      {% for item in object_list %}
+        <tr>
+        <td>{{ item.Numero_Jugador }}</td>
+        <td>{{ item.Nombre_Jugador }}</td>
+        <td>{{ item.Apellido_Jugador }}</td>
+        <td>{{ item.Nombre_Equipo }}</td>
+        <td><a href="{% url 'NFLP:newjugadores'  %}"><button type="button" name="button" class="btn btn-success btn-circle"><i class="fas fa-file fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:detailjugadores' item.Numero_Jugador %}"><button type="button" name="button" class="btn btn-info btn-circle"><i class="fas fa-info fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:deletejugadores' item.Numero_Jugador %}"><button type="button" name="button" class="btn btn-danger btn-circle"><i class="fas fa-trash fa-sm"></button></a></td>
+        <td><a href="{% url 'NFLP:updatejugadores' item.Numero_Jugador %}"><button type="button" name="button" class="btn btn-warning btn-circle"><i class="fas fa-pen fa-sm"></button></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+{% endblock content %}
